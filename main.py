@@ -1,6 +1,7 @@
 import model as m
 import preprocessing as p
 import Data_manager as d
+import evaluate as e
 
 model = m.linearRegressionGD()
 
@@ -19,3 +20,13 @@ x_train,x_test, mean, std = p.standardize_data(x_train_raw,x_test_raw)
 
 model.fit(x_train,y_train)
 predictions = model.predict(x_test)
+
+
+e.plot_data([model.cost_history],["Training Loss"], "Modellens inlärning", "Epochs", "MSE Cost" )
+e.plot_data(
+    [y_test, predictions], 
+    ["Verklighet", "Modellens Gissning"], 
+    "Investor AB - Prediktion vs Verklighet", 
+    "Dagar", 
+    "Pris (Skalat)"
+)
