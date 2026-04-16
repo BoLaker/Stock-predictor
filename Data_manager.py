@@ -11,7 +11,15 @@ def save_to_disk(df,filename):
 def load_from_disk(filename):
     df= pd.read_csv(filename, index_col=0)
     df.index = pd.to_datetime(df.index, format="%Y-%m-%d", errors="coerce")
-    return df
+    
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+    else:
+        df.columns = [str(c).replace("(", "").replace("'", "").split(",")[0] for c in df.columns]
+    
+    df = df.apply(pd.to_numeric, errors="coerce")
+    
+    return df.dropna()
     
 
 
