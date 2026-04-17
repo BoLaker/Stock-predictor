@@ -30,11 +30,11 @@ To verify the model's performance, I monitored the cost function during training
 
 ### Training Convergence
 The loss curve shows a steady decrease in Mean Squared Error, indicating successful gradient descent.
-![Training Loss](images/loss_curve.png)
+![Training Loss](images/loss_curve_v2.png)
 
 ### Prediction vs. Actual
 This plot shows the model's ability to track price movements on the test set.
-![Model Predictions](images/predictions.png)
+![Model Predictions](images/predictions_v2.png)
 
 ### Key Insights
 During evaluation, the model exhibits the "Persistence Effect" where the strongest predictor for tomorrow's price is today's price. This is a common phenomenon in financial ML on efficient markets, highlighting the difficulty of capturing significant price swings and trend reversals that deviate from the previous day's close.
