@@ -9,7 +9,7 @@ def plot_data(y_data_list,labels, title, x_label, y_label):
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.legend
+    plt.legend()
     plt.grid(True, alpha=0.3)
     
     plt.show()
